@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class Interactable : MonoBehaviour
+
+public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
@@ -25,7 +26,6 @@ public class Interactable : MonoBehaviour
                 text.enabled = true;
             }
             
-            
         }
         else
         {
@@ -38,4 +38,3 @@ public class Interactable : MonoBehaviour
         return hitObject; // Method to return the hit GameObject
     }
 }
-
