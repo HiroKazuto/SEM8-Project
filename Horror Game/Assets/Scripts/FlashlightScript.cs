@@ -16,5 +16,8 @@ public class FlashlightScript : MonoBehaviour
             isOn = !isOn;
             flashlight.enabled = isOn;
         } 
+        
+        
+        
     }
 }

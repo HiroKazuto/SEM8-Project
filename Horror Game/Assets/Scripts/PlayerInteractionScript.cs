@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     GameObject hitObject;
     public TMP_Text text;
     
-    void FixedUpdate()
+    void Update()
     {
         // Create a ray from the center of the screen
         text.enabled = false;
@@ -24,6 +24,12 @@ public class PlayerInteraction : MonoBehaviour
             if(hitObject.tag == "Interactable")
             {
                 text.enabled = true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("Pressed E");
+                    Debug.Log(hitObject.name + " Destroyed");
+                    Destroy(hitObject);
+                }
             }
         }
         else
