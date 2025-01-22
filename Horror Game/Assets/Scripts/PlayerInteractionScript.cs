@@ -25,7 +25,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 text.enabled = true;
             }
-            
         }
         else
         {

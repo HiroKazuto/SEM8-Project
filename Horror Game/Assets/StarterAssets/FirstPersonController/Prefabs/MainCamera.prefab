@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6266722139040413538}
   - component: {fileID: 2132706911709705459}
   - component: {fileID: 1337954328738403336}
-  - component: {fileID: 3627074111037916980}
   m_Layer: 0
   m_Name: Flash Light
   m_TagString: Untagged
@@ -122,19 +121,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!114 &3627074111037916980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3500096311338499893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f3691e0ade1d74e87613483df2224b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashlight: {fileID: 2132706911709705459}
 --- !u!1 &9005220659476430823
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,27 +305,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.12720999
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.12721
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.12720999
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7410002
+      value: 0.355
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32000005
+      value: -0.192
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.4249992
+      value: 0.658
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -388,8 +374,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6949835325781694593}
   m_SourcePrefab: {fileID: 100100000, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
+--- !u!1 &5772182149527993641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
+  m_PrefabInstance: {fileID: 6691083254138290296}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6949835325781694593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5772182149527993641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f3691e0ade1d74e87613483df2224b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashlight: {fileID: 2132706911709705459}
 --- !u!4 &6580104000312911763 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 055eadc08b058224583b1f9ed99bddbe, type: 3}
