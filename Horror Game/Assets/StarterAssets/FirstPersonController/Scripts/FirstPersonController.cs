@@ -43,6 +43,9 @@ namespace StarterAssets
 		[Tooltip("What layers the character uses as ground")]
 		public LayerMask GroundLayers;
 
+		[Header("Animations")]
+		[SerializeField] private Animator _animator;
+
 		[Header("Cinemachine")]
 		[Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
 		public GameObject CinemachineCameraTarget;
@@ -162,17 +165,25 @@ namespace StarterAssets
 			// if there is no input, set the target speed to 0
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
+			//determines the direction of player movement (+1 for forward, -1 for backwards)
+			float direction = Mathf.Sign(_input.move.y);
+
+			//apply direction to target speed
+			targetSpeed *= direction;
+
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+
+			//maintain the sign of the current speed to handle negative values
+			currentHorizontalSpeed *= Mathf.Sign(_speed);
 
 			float speedOffset = 0.1f;
 			float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
 			// accelerate or decelerate to target speed
-			if (currentHorizontalSpeed < targetSpeed - speedOffset || currentHorizontalSpeed > targetSpeed + speedOffset)
+			if (Mathf.Abs(currentHorizontalSpeed - targetSpeed) > speedOffset)
 			{
-				// creates curved result rather than a linear one giving a more organic speed change
-				// note T in Lerp is clamped, so we don't need to clamp our speed
+				// use the direction in the interpolation for smooth speed change
 				_speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 
 				// round speed to 3 decimal places
@@ -192,10 +203,15 @@ namespace StarterAssets
 			{
 				// move
 				inputDirection = transform.right * _input.move.x + transform.forward * _input.move.y;
+				// Apply direction to inputDirection
+				inputDirection *= direction;
 			}
 
 			// move the player
 			_controller.Move(inputDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			
+			//animate the player based on the movement speed
+			_animator.SetFloat("MoveSpeed", _speed);
 		}
 
 		private void JumpAndGravity()
