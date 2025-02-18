@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
     public TMP_Text text;
-    
+    public DoorController doorController;
     void Update()
     {
         // Create a ray from the center of the screen
@@ -30,6 +31,17 @@ public class PlayerInteraction : MonoBehaviour
                     Debug.Log(hitObject.name + " Destroyed");
                     Destroy(hitObject);
                 }
+            }
+            if(hitObject.tag == "Door")
+            {
+                text.enabled = true;
+                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("Pressed E");
+                    doorController.ToggleDoor();
+                }
+
             }
         }
         else
