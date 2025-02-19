@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
     public TMP_Text text;
-    public DoorController doorController;
+    
     void Update()
     {
         // Create a ray from the center of the screen
@@ -39,6 +39,7 @@ public class PlayerInteraction : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Pressed E");
+                    DoorController doorController = hitObject.GetComponent<DoorController>();
                     doorController.ToggleDoor();
                 }
 
