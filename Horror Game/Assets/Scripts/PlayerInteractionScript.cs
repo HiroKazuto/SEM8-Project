@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
-    public TMP_Text text;
+    public TextMeshProUGUI text;
     
     void Update()
     {
