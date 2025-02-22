@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3179
+  m_VersionIndex: 3245
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9226
+  m_VersionIndex: 9292
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1900,7 +1900,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12769
+  m_VersionIndex: 12835
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3714,7 +3714,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 15049
+  m_VersionIndex: 15115
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3862,10 +3862,9 @@ GameObject:
   - component: {fileID: 1991344318766681236}
   - component: {fileID: 4038595234365346662}
   - component: {fileID: 6698911528036713112}
-  - component: {fileID: 3500196432327129087}
   m_Layer: 0
   m_Name: Cube.193 (1)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3940,27 +3939,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3500196432327129087
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665050640371259243}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.008329629, y: 0.0012247366, z: 0.024578054}
-  m_Center: {x: 0.003975461, y: 0.00021358338, z: 0.00003203656}
 --- !u!1 &2361475129717343826
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,7 +4187,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3179
+  m_VersionIndex: 3245
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5692,7 +5670,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 14240
+  m_VersionIndex: 14306
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5928,10 +5906,9 @@ GameObject:
   - component: {fileID: 2339407717699976550}
   - component: {fileID: 6706254348754099943}
   - component: {fileID: 1345652661848180413}
-  - component: {fileID: 4587281913903789976}
   m_Layer: 0
   m_Name: Cube.194 (1)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6006,27 +5983,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4587281913903789976
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3114990194734958813}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.008329629, y: 0.0012247366, z: 0.024578054}
-  m_Center: {x: -0.0039752224, y: 0.00021358338, z: 0.00003203656}
 --- !u!1 &3218419662304979851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6145,9 +6101,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5896455326741580954}
   - component: {fileID: 1394823198858283985}
+  - component: {fileID: 5950749134347062877}
+  - component: {fileID: 2337764352112727877}
   m_Layer: 0
   m_Name: Wardrobe Doors
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6191,6 +6149,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5950749134347062877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283818193935776242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09d633d4fc8e2a4ca9050f4afd407b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2337764352112727877
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3283818193935776242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5881133, y: 2.489431, z: 0.47243464}
+  m_Center: {x: 0.0042077457, y: 0.3853324, z: -0.8992483}
 --- !u!1 &3706227375427469353
 GameObject:
   m_ObjectHideFlags: 0
@@ -6547,7 +6538,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9546
+  m_VersionIndex: 9612
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6899,7 +6890,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3179
+  m_VersionIndex: 3245
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7251,7 +7242,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9546
+  m_VersionIndex: 9612
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -7603,7 +7594,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12766
+  m_VersionIndex: 12832
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8063,7 +8054,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 9863
+  m_VersionIndex: 9929
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8416,8 +8407,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.019490981, y: 0.011745077, z: 0.034543388}
-  m_Center: {x: 0.0000001601875, y: 0.0011392407, z: 0.00017437337}
+  m_Size: {x: 0.019490981, y: 0.0117450785, z: 0.007876717}
+  m_Center: {x: 0.00000015987622, y: 0.0011392399, z: -0.013158963}
 --- !u!1 &6616734292045555170
 GameObject:
   m_ObjectHideFlags: 0
@@ -8750,7 +8741,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12766
+  m_VersionIndex: 12832
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9188,7 +9179,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 12766
+  m_VersionIndex: 12832
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9540,7 +9531,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 11958
+  m_VersionIndex: 12024
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9709,7 +9700,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 1637478532921936956, guid: 64a5996f634d69e41b8495a42d7f7752, type: 3}
-  - {fileID: -5511973133552695208, guid: 64a5996f634d69e41b8495a42d7f7752, type: 3}
+  - {fileID: 4594234787586137229, guid: 64a5996f634d69e41b8495a42d7f7752, type: 3}
   - {fileID: 8573323679743412302, guid: 64a5996f634d69e41b8495a42d7f7752, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -9742,7 +9733,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1367588542950567864, guid: 171ff52035bdc5d4f86cda1852cb00d0, type: 3}
       propertyPath: m_VersionIndex
-      value: 9097
+      value: 9163
       objectReference: {fileID: 0}
     - target: {fileID: 1367588542950567864, guid: 171ff52035bdc5d4f86cda1852cb00d0, type: 3}
       propertyPath: m_SelectedEdges.Array.size
