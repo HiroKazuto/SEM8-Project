@@ -3,11 +3,11 @@ using UnityEngine;
 public class DoorController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Animator doorAnimator;
+    private Animator animator;
     bool isOpen = false;
     void Start()
     {
-        doorAnimator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,10 +29,10 @@ public class DoorController : MonoBehaviour
 
     public void OpenDoor()
     {
-        doorAnimator.SetBool("Open", true);
+        animator.SetBool("Open", true);
     }
     public void CloseDoor()
     {
-        doorAnimator.SetBool("Open", false);
+        animator.SetBool("Open", false);
     }
 }
