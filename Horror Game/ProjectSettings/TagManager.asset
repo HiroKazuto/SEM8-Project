@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Door
   - Note
+  - Key
   layers:
   - Default
   - TransparentFX
