@@ -9,17 +9,23 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
+    
     public TextMeshProUGUI cursorText;
+    public TextMeshProUGUI noteEscapeText;
     public TextMeshProUGUI noteText;
+    
     public Image noteImage;
     bool noteEnabled = false;
     public PauseGame pauseGame;
+    
 
     void Start()
     {
         cursorText.enabled = false;
         noteImage.enabled = false;
         noteText.enabled = false;
+        noteEscapeText.enabled = false;
+        
     }
     void Update()
     {
@@ -68,6 +74,7 @@ public class PlayerInteraction : MonoBehaviour
                         noteEnabled = true;
                         noteImage.enabled = true;
                         noteText.enabled = true;
+                        noteEscapeText.enabled = true;
                         pauseGame.Pause();
                     }
                     else if(noteEnabled)
@@ -75,6 +82,7 @@ public class PlayerInteraction : MonoBehaviour
                         noteEnabled = false;
                         noteImage.enabled = false;
                         noteText.enabled = false;
+                        noteEscapeText.enabled = false;
                         pauseGame.Resume();
                     }
                         
