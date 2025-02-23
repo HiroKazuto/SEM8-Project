@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
+    public GameObject keyItem;
     
     public TextMeshProUGUI cursorText;
     public TextMeshProUGUI noteEscapeText;
@@ -25,6 +26,7 @@ public class PlayerInteraction : MonoBehaviour
         noteImage.enabled = false;
         noteText.enabled = false;
         noteEscapeText.enabled = false;
+        keyItem.SetActive(false);
         
     }
     void Update()
@@ -39,6 +41,7 @@ public class PlayerInteraction : MonoBehaviour
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
             hitObject = hit.collider.gameObject;
+
             if(hitObject.tag == "Interactable")
             {
                 cursorText.enabled = true;
@@ -49,6 +52,7 @@ public class PlayerInteraction : MonoBehaviour
                     Destroy(hitObject);
                 }
             }
+
             if(hitObject.tag == "Door")
             {
                 cursorText.enabled = true;
@@ -59,8 +63,18 @@ public class PlayerInteraction : MonoBehaviour
                     DoorController doorController = hitObject.GetComponent<DoorController>();
                     doorController.ToggleDoor();
                 }
-
             }
+
+            if(hitObject.tag == "Key")
+            {
+                cursorText.enabled = true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    keyItem.SetActive(true);
+                    Destroy(hitObject);
+                }
+            }
+
             if(hitObject.tag == "Note")
             {
                 NoteScript noteScript = hitObject.GetComponent<NoteScript>();
@@ -72,28 +86,30 @@ public class PlayerInteraction : MonoBehaviour
                     if(!noteEnabled)
                     {
                         noteEnabled = true;
-                        noteImage.enabled = true;
-                        noteText.enabled = true;
-                        noteEscapeText.enabled = true;
+                        noteObjectEnable(noteEnabled);
                         pauseGame.Pause();
                     }
                     else if(noteEnabled)
                     {
                         noteEnabled = false;
-                        noteImage.enabled = false;
-                        noteText.enabled = false;
-                        noteEscapeText.enabled = false;
+                        noteObjectEnable(noteEnabled);
                         pauseGame.Resume();
-                    }
-                        
+                    }  
                 }
-
             }
         }
+
         else
         {
             cursorText.enabled = false;
         }
+    }
+
+    public void noteObjectEnable(bool noteEnabled)
+    {
+        noteImage.enabled = noteEnabled;
+        noteText.enabled = noteEnabled;
+        noteEscapeText.enabled = noteEnabled;
     }
 
     public GameObject GetHitObject() 
