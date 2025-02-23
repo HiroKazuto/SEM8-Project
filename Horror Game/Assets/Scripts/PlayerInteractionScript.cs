@@ -9,12 +9,23 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
-    public TextMeshProUGUI text;
-    
+    public TextMeshProUGUI cursorText;
+    public TextMeshProUGUI noteText;
+    public Image noteImage;
+    bool noteEnabled = false;
+    public PauseGame pauseGame;
+
+    void Start()
+    {
+        cursorText.enabled = false;
+        noteImage.enabled = false;
+        noteText.enabled = false;
+    }
     void Update()
     {
         // Create a ray from the center of the screen
-        text.enabled = false;
+        
+        
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
         
@@ -24,7 +35,7 @@ public class PlayerInteraction : MonoBehaviour
             hitObject = hit.collider.gameObject;
             if(hitObject.tag == "Interactable")
             {
-                text.enabled = true;
+                cursorText.enabled = true;
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Pressed E");
@@ -34,20 +45,46 @@ public class PlayerInteraction : MonoBehaviour
             }
             if(hitObject.tag == "Door")
             {
-                text.enabled = true;
+                cursorText.enabled = true;
                 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    Debug.Log("Pressed E");
+                    Debug.Log("Toggle Door");
                     DoorController doorController = hitObject.GetComponent<DoorController>();
                     doorController.ToggleDoor();
+                }
+
+            }
+            if(hitObject.tag == "Note")
+            {
+                NoteScript noteScript = hitObject.GetComponent<NoteScript>();
+                noteScript.AssignText();
+                cursorText.enabled = true;
+                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!noteEnabled)
+                    {
+                        noteEnabled = true;
+                        noteImage.enabled = true;
+                        noteText.enabled = true;
+                        pauseGame.Pause();
+                    }
+                    else if(noteEnabled)
+                    {
+                        noteEnabled = false;
+                        noteImage.enabled = false;
+                        noteText.enabled = false;
+                        pauseGame.Resume();
+                    }
+                        
                 }
 
             }
         }
         else
         {
-            text.enabled = false;
+            cursorText.enabled = false;
         }
     }
 
