@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Note
   - Key
+  - NPC
   layers:
   - Default
   - TransparentFX
