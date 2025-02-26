@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
     public GameObject keyItem;
-    
+    public CutscenePlayerScript cutscenePlayerScript;
     public TextMeshProUGUI cursorText;
     public TextMeshProUGUI noteEscapeText;
     public TextMeshProUGUI noteText;
@@ -79,7 +79,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
                 dialougeScript.AssignText();
-                
+
                 cursorText.enabled = true;
                 
                 if(Input.GetKeyDown(KeyCode.E))
@@ -94,6 +94,8 @@ public class PlayerInteraction : MonoBehaviour
 
                         DoorController doorController = hitObject.GetComponent<DoorController>();
                         doorController.ToggleDoor();
+                        cutscenePlayerScript.PlayCutscene();
+
                     }
                     
                 }
@@ -120,13 +122,13 @@ public class PlayerInteraction : MonoBehaviour
                     if(!noteEnabled)
                     {
                         noteEnabled = true;
-                        noteObjectEnable(noteEnabled);
+                        NoteObjectEnable(noteEnabled);
                         pauseGame.Pause();
                     }
                     else if(noteEnabled)
                     {
                         noteEnabled = false;
-                        noteObjectEnable(noteEnabled);
+                        NoteObjectEnable(noteEnabled);
                         pauseGame.Resume();
                     }
                 }
@@ -145,13 +147,13 @@ public class PlayerInteraction : MonoBehaviour
                         cutSceneNoteCount++;
                         Debug.Log("Note Count:"+cutSceneNoteCount);
                         noteEnabled = true;
-                        noteObjectEnable(noteEnabled);
+                        NoteObjectEnable(noteEnabled);
                         pauseGame.Pause();
                     }
                     else if(noteEnabled)
                     {
                         noteEnabled = false;
-                        noteObjectEnable(noteEnabled);
+                        NoteObjectEnable(noteEnabled);
                         pauseGame.Resume();
                     }
                 }
@@ -166,7 +168,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void noteObjectEnable(bool noteEnabled)
+    public void NoteObjectEnable(bool noteEnabled)
     {
         noteImage.enabled = noteEnabled;
         noteText.enabled = noteEnabled;

@@ -10,6 +10,8 @@ TagManager:
   - Note
   - Key
   - NPC
+  - CutsceneDoor
+  - CutsceneNotes
   layers:
   - Default
   - TransparentFX
