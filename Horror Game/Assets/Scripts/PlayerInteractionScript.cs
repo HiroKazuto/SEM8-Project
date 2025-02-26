@@ -14,10 +14,13 @@ public class PlayerInteraction : MonoBehaviour
     public TextMeshProUGUI cursorText;
     public TextMeshProUGUI noteEscapeText;
     public TextMeshProUGUI noteText;
+    public TextMeshProUGUI dialougeBoxText;
     
     public Image noteImage;
     bool noteEnabled = false;
+    bool CutsceneDoorOpen = false;
     public PauseGame pauseGame;
+    int cutSceneNoteCount = 0;
     
 
     void Start()
@@ -26,6 +29,7 @@ public class PlayerInteraction : MonoBehaviour
         noteImage.enabled = false;
         noteText.enabled = false;
         noteEscapeText.enabled = false;
+        dialougeBoxText.enabled = false;
         keyItem.SetActive(false);
         
     }
@@ -36,6 +40,12 @@ public class PlayerInteraction : MonoBehaviour
         
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
+        
+        //CutSceneDoorOpenCount
+        if(cutSceneNoteCount >= 3)
+        {
+            CutsceneDoorOpen = true;
+        }
         
 
         if (Physics.Raycast(ray, out hit, maxDistance))
@@ -65,6 +75,30 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
+            if(hitObject.tag == "CutsceneDoor")
+            {
+                DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
+                dialougeScript.AssignText();
+                
+                cursorText.enabled = true;
+                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    
+                    if(!CutsceneDoorOpen)
+                    {
+                        dialougeBoxText.enabled = true;
+                    }
+                    else{
+                        Debug.Log("Toggle Door");
+
+                        DoorController doorController = hitObject.GetComponent<DoorController>();
+                        doorController.ToggleDoor();
+                    }
+                    
+                }
+            }
+
             if(hitObject.tag == "Key")
             {
                 cursorText.enabled = true;
@@ -74,7 +108,7 @@ public class PlayerInteraction : MonoBehaviour
                     Destroy(hitObject);
                 }
             }
-
+            
             if(hitObject.tag == "Note")
             {
                 NoteScript noteScript = hitObject.GetComponent<NoteScript>();
@@ -94,14 +128,41 @@ public class PlayerInteraction : MonoBehaviour
                         noteEnabled = false;
                         noteObjectEnable(noteEnabled);
                         pauseGame.Resume();
-                    }  
+                    }
                 }
             }
+        
+            if(hitObject.tag == "CutsceneNotes")
+            {
+                NoteScript noteScript = hitObject.GetComponent<NoteScript>();
+                noteScript.AssignText();
+                cursorText.enabled = true;
+                
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    if(!noteEnabled)
+                    {
+                        cutSceneNoteCount++;
+                        Debug.Log("Note Count:"+cutSceneNoteCount);
+                        noteEnabled = true;
+                        noteObjectEnable(noteEnabled);
+                        pauseGame.Pause();
+                    }
+                    else if(noteEnabled)
+                    {
+                        noteEnabled = false;
+                        noteObjectEnable(noteEnabled);
+                        pauseGame.Resume();
+                    }
+                }
+            }
+            
         }
 
         else
         {
             cursorText.enabled = false;
+            dialougeBoxText.enabled = false;
         }
     }
 
