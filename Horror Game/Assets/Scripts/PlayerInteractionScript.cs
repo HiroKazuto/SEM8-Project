@@ -10,7 +10,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] float maxDistance = 10f;
     GameObject hitObject;
     public GameObject keyItem;
-    public CutscenePlayerScript cutscenePlayerScript;
+    public CutscenePlayerScript cutscenePlayerScript1;
+    public CutscenePlayerScript cutscenePlayerScript2;
     public TextMeshProUGUI cursorText;
     public TextMeshProUGUI noteEscapeText;
     public TextMeshProUGUI noteText;
@@ -36,8 +37,6 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         // Create a ray from the center of the screen
-        
-        
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
         
@@ -50,8 +49,9 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
+           
             hitObject = hit.collider.gameObject;
-
+            DoorController doorController = hitObject.GetComponent<DoorController>();
             if(hitObject.tag == "Interactable")
             {
                 cursorText.enabled = true;
@@ -70,7 +70,7 @@ public class PlayerInteraction : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.E))
                 {
                     Debug.Log("Toggle Door");
-                    DoorController doorController = hitObject.GetComponent<DoorController>();
+                    
                     doorController.ToggleDoor();
                 }
             }
@@ -78,6 +78,7 @@ public class PlayerInteraction : MonoBehaviour
             if(hitObject.tag == "CutsceneDoor")
             {
                 DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
+                
                 dialougeScript.AssignText();
 
                 cursorText.enabled = true;
@@ -91,13 +92,20 @@ public class PlayerInteraction : MonoBehaviour
                     }
                     else{
                         Debug.Log("Toggle Door");
-
-                        DoorController doorController = hitObject.GetComponent<DoorController>();
                         doorController.ToggleDoor();
-                        cutscenePlayerScript.PlayCutscene();
+                        cutscenePlayerScript1.PlayCutscene();
 
                     }
                     
+                }
+            }
+
+            if(hitObject.tag == "CutSceneMirror")
+            {
+                cursorText.enabled = true;
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    cutscenePlayerScript2.PlayCutscene();   
                 }
             }
 

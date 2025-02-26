@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - CutsceneDoor
   - CutsceneNotes
+  - CutSceneMirror
   layers:
   - Default
   - TransparentFX
