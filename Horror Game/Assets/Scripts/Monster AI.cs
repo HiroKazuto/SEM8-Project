@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
 {
 
     public NavMeshAgent ai;
-
+    public GameObject jumpscareCamera;
     public List<Transform> destinations;
 
     public Animator aiAnim;
@@ -43,7 +43,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
 
     {
-
+        jumpscareCamera.SetActive(false);
         walking = true;
 
         randNum = Random.Range(0, destinations.Count);
@@ -199,9 +199,8 @@ public class EnemyAI : MonoBehaviour
     IEnumerator deathRoutine()
 
     {
-
+        jumpscareCamera.SetActive(true);
         yield return new WaitForSeconds(jumpscareTime);
-
         SceneManager.LoadScene(deathScene);
 
     }
