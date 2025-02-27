@@ -1,5 +1,7 @@
+using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -22,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
     public Image noteImage;
     bool noteEnabled = false;
     bool CutsceneDoorOpen = false;
+    bool playerHasKey = false;
     public PauseGame pauseGame;
     int cutSceneNoteCount = 0;
     
@@ -90,6 +93,30 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
 
+            if(hitObject.tag == "StaircaseDoor")
+            {
+                DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
+                dialougeScript.AssignText();
+                cursorText.enabled = true;
+
+                
+                    if(Input.GetKeyDown(KeyCode.E))
+                    {
+                        if(!playerHasKey)
+                        {
+                            dialougeBoxText.enabled = true;
+                        }
+                        else
+                        {
+                            Debug.Log("Toggle Door");
+                            doorController.ToggleDoor();
+                            Destroy(keyItem);
+                        }
+                    }
+                 
+                
+            }
+
             if(hitObject.tag == "CutsceneDoor")
             {
                 DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
@@ -129,8 +156,10 @@ public class PlayerInteraction : MonoBehaviour
             if(hitObject.tag == "Key")
             {
                 cursorText.enabled = true;
+
                 if(Input.GetKeyDown(KeyCode.E))
                 {
+                    playerHasKey = true;
                     keyItem.SetActive(true);
                     Destroy(hitObject);
                 }

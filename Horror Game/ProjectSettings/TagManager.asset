@@ -15,6 +15,7 @@ TagManager:
   - CutSceneMirror
   - Disabled Light
   - Hiding Spot
+  - StaircaseDoor
   layers:
   - Default
   - TransparentFX
