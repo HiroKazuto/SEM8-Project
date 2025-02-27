@@ -1837,6 +1837,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 501572502}
     m_Modifications:
+    - target: {fileID: 1776385004898379349, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Disabled Light
+      objectReference: {fileID: 0}
     - target: {fileID: 3247285644481862047, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1888,6 +1892,10 @@ PrefabInstance:
     - target: {fileID: 7767139765958660588, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Name
       value: Flourescent Light (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767139765958660588, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Disabled Light
       objectReference: {fileID: 0}
     - target: {fileID: 8923191946917455820, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
@@ -3721,6 +3729,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 501572502}
     m_Modifications:
+    - target: {fileID: 1776385004898379349, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Disabled Light
+      objectReference: {fileID: 0}
     - target: {fileID: 3247285644481862047, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -8783,6 +8795,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 182184067}
+    - target: {fileID: 937911014221817999, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 937911014221817999, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1065997567161767734, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -8887,6 +8907,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2653644238014679463, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
+      propertyPath: m_TagString
+      value: Hiding Spot
+      objectReference: {fileID: 0}
     - target: {fileID: 2674395850247994886, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
       propertyPath: m_VersionIndex
       value: 3594
@@ -8906,6 +8930,10 @@ PrefabInstance:
     - target: {fileID: 2952384787529312252, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
       propertyPath: m_VersionIndex
       value: 3884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3218419662304979851, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
+      propertyPath: m_TagString
+      value: Hiding Spot
       objectReference: {fileID: 0}
     - target: {fileID: 3231338522181989799, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
       propertyPath: m_Mesh
@@ -9195,6 +9223,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2653644238014679463, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1744718226}
     - targetCorrespondingSourceObject: {fileID: 1373026906181890602, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
       insertIndex: -1
       addedObject: {fileID: 809809089}
@@ -19588,6 +19619,23 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &625217102 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4524363345500845485, guid: f89215acd8b3ec44ea2ace85e0d1e7c5, type: 3}
+  m_PrefabInstance: {fileID: 5374435525012699548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &625217107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625217102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8afa30c704436c2439305b5f5506e350, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &627357052
 Mesh:
   m_ObjectHideFlags: 0
@@ -37618,6 +37666,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 501572502}
     m_Modifications:
+    - target: {fileID: 263088567220837703, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776385004898379349, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_Name
+      value: Point Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776385004898379349, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3247285644481862047, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -37669,6 +37729,10 @@ PrefabInstance:
     - target: {fileID: 7767139765958660588, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Name
       value: Flourescent Light (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767139765958660588, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Disabled Light
       objectReference: {fileID: 0}
     - target: {fileID: 8923191946917455820, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
@@ -44009,6 +44073,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 501572502}
     m_Modifications:
+    - target: {fileID: 1776385004898379349, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3247285644481862047, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -44060,6 +44128,10 @@ PrefabInstance:
     - target: {fileID: 7767139765958660588, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Name
       value: Flourescent Light (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7767139765958660588, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
+      propertyPath: m_TagString
+      value: Disabled Light
       objectReference: {fileID: 0}
     - target: {fileID: 8923191946917455820, guid: 2cddc15c64dff1e4682ef87b64b8a73f, type: 3}
       propertyPath: m_Mesh
@@ -54112,6 +54184,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1744718224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2653644238014679463, guid: aa4c57e2a2689ae4ea1126edfdcd0e99, type: 3}
+  m_PrefabInstance: {fileID: 222684213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1744718226
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744718224}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!43 &1747152982
 Mesh:
   m_ObjectHideFlags: 0
@@ -66796,6 +66894,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2076607338}
     - target: {fileID: 1519459311129702814, guid: 5bef04ed29916384f97005fc861e00ee, type: 3}
+      propertyPath: lightControlScript
+      value: 
+      objectReference: {fileID: 625217107}
+    - target: {fileID: 1519459311129702814, guid: 5bef04ed29916384f97005fc861e00ee, type: 3}
       propertyPath: cutscenePlayerScript
       value: 
       objectReference: {fileID: 1866227312}
@@ -66833,7 +66935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8167865506085291603, guid: 5bef04ed29916384f97005fc861e00ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.697521
+      value: 32.10638
       objectReference: {fileID: 0}
     - target: {fileID: 8167865506085291603, guid: 5bef04ed29916384f97005fc861e00ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66841,7 +66943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8167865506085291603, guid: 5bef04ed29916384f97005fc861e00ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.70021
+      value: -17.808353
       objectReference: {fileID: 0}
     - target: {fileID: 8167865506085291603, guid: 5bef04ed29916384f97005fc861e00ee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -74072,7 +74174,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2328019404064048924, guid: f89215acd8b3ec44ea2ace85e0d1e7c5, type: 3}
       insertIndex: 16
       addedObject: {fileID: 1040179338}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4524363345500845485, guid: f89215acd8b3ec44ea2ace85e0d1e7c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 625217107}
   m_SourcePrefab: {fileID: 100100000, guid: f89215acd8b3ec44ea2ace85e0d1e7c5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

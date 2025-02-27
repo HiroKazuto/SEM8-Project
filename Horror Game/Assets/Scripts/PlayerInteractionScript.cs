@@ -12,10 +12,12 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject keyItem;
     public CutscenePlayerScript cutscenePlayerScript1;
     public CutscenePlayerScript cutscenePlayerScript2;
+    public LightControlScript lightControlScript;
     public TextMeshProUGUI cursorText;
     public TextMeshProUGUI noteEscapeText;
     public TextMeshProUGUI noteText;
     public TextMeshProUGUI dialougeBoxText;
+
     
     public Image noteImage;
     bool noteEnabled = false;
@@ -52,6 +54,8 @@ public class PlayerInteraction : MonoBehaviour
            
             hitObject = hit.collider.gameObject;
             DoorController doorController = hitObject.GetComponent<DoorController>();
+
+
             if(hitObject.tag == "Interactable")
             {
                 cursorText.enabled = true;
@@ -61,6 +65,17 @@ public class PlayerInteraction : MonoBehaviour
                     Debug.Log(hitObject.name + " Destroyed");
                     Destroy(hitObject);
                 }
+            }
+
+            if(hitObject.tag == "Hiding Spot")
+            {
+                cursorText.enabled = true;
+                HidingScript hideCamera = hitObject.GetComponent<HidingScript>();
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    hideCamera.HideCameraSwitch(true);
+                }
+                
             }
 
             if(hitObject.tag == "Door")
@@ -102,9 +117,11 @@ public class PlayerInteraction : MonoBehaviour
 
             if(hitObject.tag == "CutSceneMirror")
             {
+                
                 cursorText.enabled = true;
                 if(Input.GetKeyDown(KeyCode.E))
                 {
+                    lightControlScript.DisableLight();
                     cutscenePlayerScript2.PlayCutscene();   
                 }
             }

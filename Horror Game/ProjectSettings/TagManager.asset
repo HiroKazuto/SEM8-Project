@@ -13,6 +13,8 @@ TagManager:
   - CutsceneDoor
   - CutsceneNotes
   - CutSceneMirror
+  - Disabled Light
+  - Hiding Spot
   layers:
   - Default
   - TransparentFX
