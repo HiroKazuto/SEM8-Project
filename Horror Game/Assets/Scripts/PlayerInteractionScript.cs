@@ -57,6 +57,8 @@ public class PlayerInteraction : MonoBehaviour
            
             hitObject = hit.collider.gameObject;
             DoorController doorController = hitObject.GetComponent<DoorController>();
+            DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
+            dialougeScript.AssignText();
 
 
             if(hitObject.tag == "Interactable")
@@ -95,8 +97,8 @@ public class PlayerInteraction : MonoBehaviour
 
             if(hitObject.tag == "StaircaseDoor")
             {
-                DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
-                dialougeScript.AssignText();
+                
+                //dialougeScript.AssignText();
                 cursorText.enabled = true;
 
                 
@@ -113,16 +115,12 @@ public class PlayerInteraction : MonoBehaviour
                             Destroy(keyItem);
                         }
                     }
-                 
-                
             }
 
             if(hitObject.tag == "CutsceneDoor")
             {
-                DialougeScript dialougeScript = hitObject.GetComponent<DialougeScript>();
-                
-                dialougeScript.AssignText();
-
+            
+                //dialougeScript.AssignText();
                 cursorText.enabled = true;
                 
                 if(Input.GetKeyDown(KeyCode.E))
