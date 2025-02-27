@@ -8,6 +8,9 @@ public class HidingScript : MonoBehaviour
     public Camera playerCamera;
     public Camera hidingSpotCamera;
     public GameObject playerObject;
+    public enemyAI monsterScript;
+    public Transform monsterTransform;
+    public float loseDistance;
 
     bool playerHidingState = false;
 
@@ -38,6 +41,15 @@ public class HidingScript : MonoBehaviour
         playerCamera.enabled = false;
         hidingSpotCamera.enabled = true;
         playerHidingState = hideState;
+        float distance = Vector3.Distance(monsterTransform.position, playerObject.transform.position);
+        if(distance > loseDistance)
+        {
+            if(monsterScript.chasing == true)
+             {
+                monsterScript.stopChase();
+
+              }
+    }
     }
 
     public void PlayerCameraSwitch(bool hideState)

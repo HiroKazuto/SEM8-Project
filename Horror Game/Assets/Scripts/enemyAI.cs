@@ -10,12 +10,12 @@ using UnityEngine.SceneManagement;
 
 
 
-public class EnemyAI : MonoBehaviour
+public class enemyAI : MonoBehaviour
 
 {
 
     public NavMeshAgent ai;
-    public GameObject jumpscareCamera;
+
     public List<Transform> destinations;
 
     public Animator aiAnim;
@@ -30,25 +30,19 @@ public class EnemyAI : MonoBehaviour
 
     Vector3 dest;
 
-    int randNum;
-
-    public int destinationAmount;
-
     public Vector3 rayCastOffset;
 
     public string deathScene;
 
-
+    public float aiDistance;
 
     void Start()
 
     {
-        jumpscareCamera.SetActive(false);
+
         walking = true;
 
-        randNum = Random.Range(0, destinations.Count);
-
-        currentDest = destinations[randNum];
+        currentDest = destinations[Random.Range(0, destinations.Count)];
 
     }
 
@@ -60,11 +54,13 @@ public class EnemyAI : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position + rayCastOffset, direction, out hit, sightDistance))
+        aiDistance = Vector3.Distance(player.position, this.transform.position);
+
+        if(Physics.Raycast(transform.position + rayCastOffset, direction, out hit, sightDistance))
 
         {
 
-            if (hit.collider.gameObject.tag == "Player")
+            if(hit.collider.gameObject.tag == "Player")
 
             {
 
@@ -82,7 +78,7 @@ public class EnemyAI : MonoBehaviour
 
         }
 
-        if (chasing == true)
+        if(chasing == true)
 
         {
 
@@ -98,9 +94,7 @@ public class EnemyAI : MonoBehaviour
 
             aiAnim.SetTrigger("sprint");
 
-            float distance = Vector3.Distance(player.position, ai.transform.position);
-
-            if (distance <= catchDistance)
+            if (aiDistance <= catchDistance)
 
             {
 
@@ -122,7 +116,7 @@ public class EnemyAI : MonoBehaviour
 
         }
 
-        if (walking == true)
+        if(walking == true)
 
         {
 
@@ -162,6 +156,20 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    public void stopChase()
+
+    {
+
+        walking = true;
+
+        chasing = false;
+
+        StopCoroutine("chaseRoutine");
+
+        currentDest = destinations[Random.Range(0, destinations.Count)];
+
+    }
+
     IEnumerator stayIdle()
 
     {
@@ -172,9 +180,7 @@ public class EnemyAI : MonoBehaviour
 
         walking = true;
 
-        randNum = Random.Range(0, destinations.Count);
-
-        currentDest = destinations[randNum];
+        currentDest = destinations[Random.Range(0, destinations.Count)];
 
     }
 
@@ -186,21 +192,16 @@ public class EnemyAI : MonoBehaviour
 
         yield return new WaitForSeconds(chaseTime);
 
-        walking = true;
-
-        chasing = false;
-
-        randNum = Random.Range(0, destinations.Count);
-
-        currentDest = destinations[randNum];
+        stopChase();
 
     }
 
     IEnumerator deathRoutine()
 
     {
-        jumpscareCamera.SetActive(true);
+
         yield return new WaitForSeconds(jumpscareTime);
+
         SceneManager.LoadScene(deathScene);
 
     }
